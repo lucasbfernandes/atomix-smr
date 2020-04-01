@@ -1,13 +1,11 @@
 package br.com.ufu.atomixsmr.controller;
 
+import br.com.ufu.atomixsmr.dto.CreateRequestDto;
 import br.com.ufu.atomixsmr.dto.ReadRequestDto;
 import br.com.ufu.atomixsmr.service.RequestsService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseStatus;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,5 +26,11 @@ public class RequestsController {
     @ResponseStatus(HttpStatus.OK)
     public List<ReadRequestDto> getRequests() {
         return this.requestsService.getRequests();
+    }
+
+    @PostMapping(value = "")
+    @ResponseStatus(HttpStatus.OK)
+    public ReadRequestDto createRequest(CreateRequestDto createRequestDto) {
+        return this.requestsService.createRequest(createRequestDto);
     }
 }

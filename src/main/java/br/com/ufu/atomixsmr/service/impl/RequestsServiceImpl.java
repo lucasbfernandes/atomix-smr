@@ -1,5 +1,6 @@
 package br.com.ufu.atomixsmr.service.impl;
 
+import br.com.ufu.atomixsmr.dto.CreateRequestDto;
 import br.com.ufu.atomixsmr.dto.ReadRequestDto;
 import br.com.ufu.atomixsmr.entity.Request;
 import br.com.ufu.atomixsmr.service.RequestsService;
@@ -28,5 +29,12 @@ public class RequestsServiceImpl implements RequestsService {
             .stream()
             .map(request -> request.toReadDto())
             .collect(Collectors.toList());
+    }
+
+    public ReadRequestDto createRequest(CreateRequestDto createRequestDto) {
+        final List<Request> requests = this.atomix.getList("requests-list");
+        final Request request = createRequestDto.toEntity();
+        requests.add(request);
+        return request.toReadDto();
     }
 }
