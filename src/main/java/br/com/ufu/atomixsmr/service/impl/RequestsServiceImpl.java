@@ -27,7 +27,7 @@ public class RequestsServiceImpl implements RequestsService {
         final List<Request> requests = this.atomix.getList("requests-list");
         return requests
             .stream()
-            .map(request -> request.toReadDto())
+            .map(Request::toReadDto)
             .collect(Collectors.toList());
     }
 

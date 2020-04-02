@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -30,7 +31,7 @@ public class RequestsController {
 
     @PostMapping(value = "")
     @ResponseStatus(HttpStatus.OK)
-    public ReadRequestDto createRequest(CreateRequestDto createRequestDto) {
+    public ReadRequestDto createRequest(@Valid @RequestBody CreateRequestDto createRequestDto) {
         return this.requestsService.createRequest(createRequestDto);
     }
 }

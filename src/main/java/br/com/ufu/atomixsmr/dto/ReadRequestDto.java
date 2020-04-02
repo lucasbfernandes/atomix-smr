@@ -1,13 +1,11 @@
 package br.com.ufu.atomixsmr.dto;
 
-import java.time.LocalDateTime;
-
 public class ReadRequestDto {
 
-    public LocalDateTime createdAt;
+    public String createdAt;
 
     public ReadRequestDto(
-        LocalDateTime createdAt
+        String createdAt
     ) {
         this.createdAt = createdAt;
     }

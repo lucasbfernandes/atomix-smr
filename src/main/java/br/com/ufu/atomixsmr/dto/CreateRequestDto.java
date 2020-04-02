@@ -2,14 +2,19 @@ package br.com.ufu.atomixsmr.dto;
 
 import br.com.ufu.atomixsmr.entity.Request;
 
-import java.time.LocalDateTime;
+import javax.validation.constraints.NotEmpty;
 
 public class CreateRequestDto {
 
-    public LocalDateTime createdAt;
+    @NotEmpty
+    public String createdAt;
+
+    public CreateRequestDto() {
+
+    }
 
     public CreateRequestDto(
-            LocalDateTime createdAt
+        String createdAt
     ) {
         this.createdAt = createdAt;
     }
@@ -18,5 +23,13 @@ public class CreateRequestDto {
         return new Request(
             this.createdAt
         );
+    }
+
+    public String getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(String createdAt) {
+        this.createdAt = createdAt;
     }
 }
