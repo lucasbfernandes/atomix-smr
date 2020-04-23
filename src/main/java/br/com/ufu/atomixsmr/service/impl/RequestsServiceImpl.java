@@ -34,6 +34,7 @@ public class RequestsServiceImpl implements RequestsService {
     public ReadRequestDto createRequest(CreateRequestDto createRequestDto) {
         final List<Request> requests = this.atomix.getList("requests-list");
         final Request request = createRequestDto.toEntity();
+
         requests.add(request);
         return request.toReadDto();
     }
