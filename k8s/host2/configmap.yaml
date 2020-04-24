@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: atomix-smr-host2-config
+data:
+  RAFT_NODE_NAME: host2
+  RAFT_NODE_ADDRESS: 127.0.0.1:8001
+  MANAGEMENT_GROUP_STORAGE_DIR: cluster/management/host2/data
+  PARTITION_GROUP_STORAGE_DIR: cluster/partition/host2/data
