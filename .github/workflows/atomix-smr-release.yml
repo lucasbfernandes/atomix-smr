@@ -28,7 +28,7 @@ jobs:
       run: docker build -t lucasbfernandes/atomix-smr:latest -f ./Dockerfile .
 
     - name: Login
-      run: docker login -u lucasbfernandes -p ${{secrets.DOCKER_REGISTRY_PASSWORD}}
+      run: docker login -u lucasbfernandes -p 123
 
     - name: Tag versions
       run: docker tag lucasbfernandes/atomix-smr:latest lucasbfernandes/atomix-smr:${{ steps.get_version.outputs.VERSION }}
