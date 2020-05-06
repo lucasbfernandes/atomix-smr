@@ -29,3 +29,9 @@ target/
 .idea/
 
 cluster/
+
+.settings/
+
+.project
+
+.classpath
