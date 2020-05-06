@@ -4,6 +4,6 @@ metadata:
   name: atomix-smr-host2-config
 data:
   RAFT_NODE_NAME: host2
-  RAFT_NODE_ADDRESS: "127.0.0.1:8000"
+  RAFT_NODE_ADDRESS: "172-17-0-5.atomix-smr-service.default.svc.cluster.local:8000"
   MANAGEMENT_GROUP_STORAGE_DIR: cluster/management/host2/data
   PARTITION_GROUP_STORAGE_DIR: cluster/partition/host2/data
