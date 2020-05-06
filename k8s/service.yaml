@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: atomix-smr-service
+spec:
+  selector:
+    type: atomix-smr-host
+  ports:
+    - protocol: TCP
+      port: 8080
+      targetPort: 8080

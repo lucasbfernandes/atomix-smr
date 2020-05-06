@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: atomix-smr-host1-deployment
@@ -6,11 +6,17 @@ spec:
   template:
     metadata:
       name: atomix-smr-host1-pod
+      labels:
+        type: atomix-smr-host
+        name: atomix-smr-host1-pod
     spec:
       containers:
         - name: atomix-smr
           image: lucasbfernandes/atomix-smr
-      envFrom:
-        - configMapRef:
-            name: atomix-smr-host1-config
+          envFrom:
+            - configMapRef:
+                name: atomix-smr-host1-config
   replicas: 1
+  selector:
+    matchLabels:
+      name: atomix-smr-host1-pod
